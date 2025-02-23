@@ -1,14 +1,13 @@
+from functools import partial
 import datetime
 import sys
 
-def utcnow() -> datetime:
-    """Construct a UTC datetime from time.time()."""
-    if sys.version_info >= (3, 12):
-        return datetime.datetime.now(datetime.UTC)
-    return datetime.datetime.utcnow()
+if sys.version_info >= (3, 12):
+    utcnow = partial(datetime.datetime.now, tz=datetime.UTC)
+else:
+    utcnow = datetime.datetime.utcnow
 
-def utcfromtimestamp() -> datetime:
-    """Construct a UTC datetime from time.time()."""
-    if sys.version_info >= (3, 12):
-        return datetime.datetime.fromtimestamp(datetime.UTC)
-    return datetime.datetime.utcfromtimestamp()
+if sys.version_info >= (3, 12):
+    utcnow = partial(datetime.datetime.fromtimestamp, tz=datetime.UTC)
+else:
+    utcnow = datetime.datetime.utcfromtimestamp
