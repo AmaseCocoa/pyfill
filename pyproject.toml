@@ -1,6 +1,6 @@
 [project]
 name = "pyfill"
-version = "0.1.1"
+version = "0.1.2"
 description = "pyfill is a tool to detect Python versions and automatically replace deprecated features (e.g. datetime.utcnow) with alternative methods."
 authors = [
     {name = "AmaseCocoa", email = "cocoa@amase.cc"},

@@ -8,6 +8,6 @@ else:
     utcnow = datetime.datetime.utcnow
 
 if sys.version_info >= (3, 12):
-    utcnow = partial(datetime.datetime.fromtimestamp, tz=datetime.UTC)
+    utcfromtimestamp = partial(datetime.datetime.fromtimestamp, tz=datetime.UTC)
 else:
-    utcnow = datetime.datetime.utcfromtimestamp
+    utcfromtimestamp = datetime.datetime.utcfromtimestamp
